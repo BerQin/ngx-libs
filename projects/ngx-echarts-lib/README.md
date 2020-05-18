@@ -11,10 +11,16 @@
 
 ### 事件
 | 事件名称 | 说明 | 返回值 |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | `(chartClick)` | 放入需要修改的echart属性即可 | `event` |
 | `(chartMouseover)` | 放入需要修改的echart属性即可 | `event` |
 | `(afterChartView)` | chart加载完成后的回调函数 | `Chart` |
+
+## service NgxEchartsLibService
+| 方法名称 | 说明 | 返回值 |
+| --- | --- | --- |
+| `initOption` | 对主题进行重新定义 | `null` |
+
 
 ## 使用
 
