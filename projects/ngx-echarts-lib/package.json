@@ -1,6 +1,6 @@
 {
   "name": "ngx-bucket-echarts-lib",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "description": "About echarts Angualr components!",
   "keywords": [
     "echart",
@@ -11,6 +11,7 @@
     "echarts": "^4.7.0",
     "echarts-wordcloud": "^1.1.3"
   },
+  "deprecated": false,
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"

@@ -82,7 +82,7 @@ export interface EchartXAxis {
   axisLabel?: EchartAxisLabelConfig;
   splitLine?: EchartAxisSplitLineConfig;
   splitArea?: EchartAxisSplitAreaConfig;
-  data?: Array<EchartAxisDataXItemConfig>;
+  data?: Array<EchartAxisDataXItemConfig | string | any>;
   axisPointer?: EchartAxisPointerConfig;
   zlevel?: number;
   z?: number;
@@ -756,7 +756,7 @@ export abstract class Chart {
     axisLabel?: EchartAxisLabelConfig,
     splitLine?: EchartAxisSplitLineConfig,
     splitArea?: EchartAxisSplitAreaConfig,
-    data?: Array<EchartAxisDataXItemConfig>,
+    data?: Array<EchartAxisDataXItemConfig | string | any>,
     axisPointer?: EchartAxisPointerConfig,
     zlevel?: number,
     z?: number,
@@ -782,7 +782,7 @@ export abstract class Chart {
     axisLabel?: EchartAxisLabelConfig,
     splitLine?: EchartAxisSplitLineConfig,
     splitArea?: EchartAxisSplitAreaConfig,
-    data?: Array<EchartAxisDataXItemConfig>,
+    data?: Array<EchartAxisDataXItemConfig | string | any>,
     axisPointer?: EchartAxisPointerConfig,
     zlevel?: number,
     z?: number,
@@ -903,7 +903,7 @@ export abstract class Chart {
       axisLine?: EchartAxisLineConfig,
       axisTick?: EchartAxisTickConfig,
       axisLabel?: EchartAxisLabelConfig,
-      data?: Array<EchartAxisDataXItemConfig>,
+      data?: Array<EchartAxisDataXItemConfig | string | any>,
     }
   };
   parallelAxis?: {
@@ -932,7 +932,7 @@ export abstract class Chart {
     axisLine?: EchartAxisLineConfig,
     axisTick?: EchartAxisTickConfig,
     axisLabel?: EchartAxisLabelConfig,
-    data?: Array<EchartAxisDataXItemConfig>,
+    data?: Array<EchartAxisDataXItemConfig | string | any>,
   };
   singleAxis?: {
     zlevel?: number,
@@ -967,7 +967,7 @@ export abstract class Chart {
     axisLabel?: EchartAxisLabelConfig,
     splitLine?: EchartAxisSplitLineConfig,
     splitArea?: EchartAxisSplitAreaConfig,
-    data?: Array<EchartAxisDataXItemConfig>,
+    data?: Array<EchartAxisDataXItemConfig | string | any>,
     axisPointer?: EchartAxisPointerConfig,
     tooltip?: EchartTooltip,
   };
