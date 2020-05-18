@@ -1350,8 +1350,8 @@ export interface EchartSeriesConfig {
   sampling?: 'average' | 'max' | 'min' | 'sum';
   dimensions?: Array<string | object | null | number>;
   encode?: object;
-  data?: Array<EchartSeriesDataXItemConfig>;
-  nodes?: Array<EchartSeriesDataXItemConfig>;
+  data?: Array<EchartSeriesDataXItemConfig | any>;
+  nodes?: Array<EchartSeriesDataXItemConfig | any>;
   links?: Array<EchartlinksConfig>;
   edges?: Array<EchartlinksConfig>;
   markPoint?: {
@@ -1497,7 +1497,7 @@ export interface EchartAnimation {
 export interface EchartSilentConfig {
   link?: string;
   target?: string;
-  children?: Array<EchartSeriesDataXItemConfig>;
+  children?: Array<EchartSeriesDataXItemConfig | any>;
   tooltip?: EchartTooltip;
 }
 export interface EchartCategoriesConfig {
