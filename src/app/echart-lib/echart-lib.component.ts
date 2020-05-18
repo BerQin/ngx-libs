@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxEchartsLibService } from 'ngx-echarts-lib';
-
+import { WordCloudChart } from 'ngx-echarts-lib';
 
 @Component({
   selector: 'app-echart-lib',
@@ -51,6 +51,7 @@ export class EchartLibComponent implements OnInit {
       }
     ]
   };
+  public cloud: any = new WordCloudChart();
 
   constructor(
     public chartService: NgxEchartsLibService
@@ -59,6 +60,34 @@ export class EchartLibComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.chartService.comonOption);
+    setTimeout(() => {
+      this.cloud = new WordCloudChart({
+        sizeRange: [40, 160],
+        setData: [
+          {
+            name: 'Farrah Abraham',
+            value: 66
+          },
+          {
+            name: 'asd',
+            value: 366
+          },
+          {
+            name: 'qwe',
+            value: 136
+          },
+          {
+            name: 'dfg',
+            value: 310
+          },
+          {
+            name: 'qfv',
+            value: 240
+          }
+        ]
+      });
+      console.log(this.cloud);
+    }, 2000);
   }
 
   afterChart(chart) {

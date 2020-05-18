@@ -14,7 +14,7 @@ export interface EchartTextStyle {
   'insideBottomLeft' |
   'insideTopRight' |
   'insideBottomRight';
-  color?: string | Array<string>;
+  color?: string | Array<string> | any;
   curveness?: any;
   distance?: number;
   rotate?: number;

@@ -81,3 +81,50 @@ export class EchartLibComponent implements OnInit {
   }
 }
 ```
+## 创建字符云
+
+```ts
+this.cloud = new WordCloudChart({
+  sizeRange: [40, 160],
+  setData: [
+    {
+      name: 'Farrah Abraham',
+      value: 66
+    },
+    {
+      name: 'asd',
+      value: 366
+    },
+    {
+      name: 'qwe',
+      value: 136
+    },
+    {
+      name: 'dfg',
+      value: 310
+    },
+    {
+      name: 'qfv',
+      value: 240
+    }
+  ]
+});
+```
+
+## 模版正常使用
+
+```html
+ <div class="chart-box">
+  <div class="chart" ngxeCharts [options]="cloud" ></div>
+</div>
+```
+
+### 属性与文档
+| 名称 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `setData` | 字符云的数据集`{value: number, name: string}` | `Array<{value: number, name: string}>` | [] |
+| `color` | 字符颜色 | `string | string[]` | Famart |
+| `sizeRange` | 字符大小区间 | `number[]` | `[10, 140]` |
+| `emphasis` | 设置重点样式 | 同echart.emphasis(请自行查看<a href="https://echarts.apache.org/zh/option.html#legend.emphasis">https://echarts.apache.org/zh/option.html#legend.emphasis</a>) | - |
+| `fontFamily` | 字体 | `string` | `sans-serif` |
+| `fontWeight` | 是否加粗 | `'normal' \ | 'bold' \| 'bolder' \| 'lighter'` | `bold` |
