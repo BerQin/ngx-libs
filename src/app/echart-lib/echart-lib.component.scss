@@ -1,0 +1,11 @@
+:host {
+  .chart-box{
+    width: 600px;
+    height: 400px;
+    display: inline-block;
+    .chart{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

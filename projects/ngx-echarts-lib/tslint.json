@@ -1,0 +1,19 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "no-output-native": false,
+    "variable-name": false,
+    "directive-selector": [
+      true,
+      "attribute",
+      "ngxe",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "ngxe",
+      "kebab-case"
+    ]
+  }
+}
