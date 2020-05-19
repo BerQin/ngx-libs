@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NgxEchartsLibService } from 'ngx-echarts-lib';
-import { WordCloudChart } from 'ngx-echarts-lib';
+import { Component, OnInit, Inject } from '@angular/core';
+import { WordCloudChart, NgxEchartsLibService } from 'ngx-echarts-lib';
 
 @Component({
   selector: 'app-echart-lib',

@@ -7,14 +7,13 @@ import { NgxEchartsLibService } from './ngx-echarts-lib.service';
   declarations: [
     ChartsDirective
   ],
-  imports: [
-  ],
   exports: [
     ChartsDirective
   ]
 })
 
 export class NgxEchartsLibModule {
+
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: NgxEchartsLibModule,

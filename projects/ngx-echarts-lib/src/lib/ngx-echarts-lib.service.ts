@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { Chart } from './chart';
 import { InitChart } from './init-chart';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class NgxEchartsLibService {
 
   public comonOption: Chart = new InitChart();

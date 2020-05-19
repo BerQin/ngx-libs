@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from './shared/shared.module';
+// import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { EchartLibComponent } from './echart-lib/echart-lib.component';
+import { NgxEchartsLibModule } from 'ngx-echarts-lib';
 
 @NgModule({
   declarations: [
@@ -13,11 +14,12 @@ import { EchartLibComponent } from './echart-lib/echart-lib.component';
     EchartLibComponent
   ],
   imports: [
+    NgxEchartsLibModule.forRoot(),
+    // SharedModule,
     BrowserModule,
     AppRoutingModule,
-    SharedModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
