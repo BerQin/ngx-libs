@@ -4,28 +4,29 @@ import { Subject } from 'rxjs';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
 
 import * as echarts from 'echarts';
-
 import ECharts = echarts.ECharts;
-import EChartOption = echarts.EChartOption;
+import * as WordCloud from 'echarts-wordcloud';
 
 import { NgxEchartsLibService } from './ngx-echarts-lib.service';
-import { Chart } from './chart';
+import { Chart } from './chart-libs/chart';
 
 @Directive({
   selector: '[ngxeCharts]'
 })
 export class ChartsDirective implements OnInit, OnDestroy, OnChanges, AfterViewInit {
 
-  private chart: ECharts;
+  public chart: ECharts;
 
-  private sizeCheckInterval: any = null;
-  private reSize$ = new Subject<string>();
-  private componetDestroyed: Subject<any> = new Subject<any>();
-  private chartDom: any = document.createElement('div');
-  private elWidth: number;
-  private elHeight: number;
+  public sizeCheckInterval: any = null;
+  public reSize$ = new Subject<string>();
+  public componetDestroyed: Subject<any> = new Subject<any>();
+  public chartDom: any = document.createElement('div');
+  public elWidth: number;
+  public elHeight: number;
 
-  private _Options: Chart;
+  @Input() forceNum: number = 3;
+
+  public _Options: Chart;
   @Input() set options(value: Chart) {
     this._Options = this.chartService.creatOption(value);
   }
@@ -44,6 +45,8 @@ export class ChartsDirective implements OnInit, OnDestroy, OnChanges, AfterViewI
     public chartService: NgxEchartsLibService,
     public el: ElementRef
   ) {
+    if (WordCloud) {
+    }
     if (this.el) {
       if (this.el.nativeElement !== null) {
         this.el.nativeElement.appendChild(this.chartDom);
@@ -80,20 +83,20 @@ export class ChartsDirective implements OnInit, OnDestroy, OnChanges, AfterViewI
     });
   }
 
-  resize() {
-    this.elHeight = this.el.nativeElement.offsetHeight;
-    this.elWidth = this.el.nativeElement.offsetWidth - this.widthDifference;
-    this.chartDom.style.height = `${this.elHeight}px`;
-    this.chartDom.style.width = `${this.elWidth}px`;
-    this.chart.resize();
-  }
-
   ngOnDestroy() {
     if (this.sizeCheckInterval) {
       clearInterval(this.sizeCheckInterval);
     }
     this.componetDestroyed.next();
     this.componetDestroyed.unsubscribe();
+  }
+
+  resize() {
+    this.elHeight = this.el.nativeElement.offsetHeight;
+    this.elWidth = this.el.nativeElement.offsetWidth - this.widthDifference;
+    this.chartDom.style.height = `${this.elHeight}px`;
+    this.chartDom.style.width = `${this.elWidth}px`;
+    this.chart.resize();
   }
 
   public change(): void {

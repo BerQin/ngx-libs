@@ -1,25 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-// import { SharedModule } from './shared/shared.module';
-import { AppRoutingModule } from './app.routing';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EchartLibComponent } from './echart-lib/echart-lib.component';
-import { NgxEchartsLibModule } from 'ngx-echarts-lib';
+
+import { NgxEchartsLibModule } from 'ngx-bucket-echarts-lib';
+import { EchartTestComponent } from './echart-test/echart-test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EchartLibComponent
+    EchartTestComponent
   ],
   imports: [
-    NgxEchartsLibModule.forRoot(),
-    // SharedModule,
     BrowserModule,
     AppRoutingModule,
+    NgxEchartsLibModule.forRoot()
   ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

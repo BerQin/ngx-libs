@@ -1,6 +1,5 @@
 import { InitChart } from './init-chart';
-import * as WordCloud from 'echarts-wordcloud';
-import { EchartSeriesDataXItemConfig, EchartXAxis, EchartYAxis } from './chart';
+import { EchartSeriesDataXItemConfig, EchartXAxis, EchartYAxis } from './chart-libs/chart';
 
 export interface WorldConfigInter {
   setData: Array<EchartSeriesDataXItemConfig>;
@@ -17,10 +16,8 @@ export class WordCloudChart extends InitChart {
     setData: []
   }) {
     super();
-    if ( WordCloud ) {
-    }
-    (this.xAxis as EchartXAxis).axisLine.show = false;
-    (this.yAxis as EchartYAxis).axisLine.show = false;
+    (<EchartXAxis>this.xAxis).show = false;
+    (<EchartYAxis>this.yAxis).show = false;
     this.series = [
       {
         type: 'wordCloud',  // 判断类型

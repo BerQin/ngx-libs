@@ -440,7 +440,7 @@ export interface EchartToolboxConfig {
       iconStyle?: {
         normal?: EchartTextStyle,
         emphasis?: EchartTextStyle,
-      },
+      } | EchartTextStyle,
       pixelRatio?: number,
     },
     restore?: {
@@ -450,7 +450,7 @@ export interface EchartToolboxConfig {
       iconStyle?: {
         normal?: EchartTextStyle,
         emphasis?: EchartTextStyle,
-      },
+      } | EchartTextStyle,
     },
     dataView?: {
       show?: boolean,
@@ -459,7 +459,7 @@ export interface EchartToolboxConfig {
       iconStyle?: {
         normal?: EchartTextStyle,
         emphasis?: EchartTextStyle,
-      },
+      } | EchartTextStyle,
       readOnly?: boolean,
       optionToContent?: any,
       contentToOption?: any,
@@ -484,7 +484,7 @@ export interface EchartToolboxConfig {
       iconStyle?: {
         normal?: EchartTextStyle,
         emphasis?: EchartTextStyle,
-      },
+      } | EchartTextStyle,
       xAxisIndex?: number | Array<number> | boolean,
       yAxisIndex?: number | Array<number> | boolean,
     },
@@ -506,7 +506,7 @@ export interface EchartToolboxConfig {
       iconStyle?: {
         normal?: EchartTextStyle,
         emphasis?: EchartTextStyle,
-      },
+      } | EchartTextStyle,
       option?: {
         line?: object,
         bar?: object,
@@ -543,7 +543,7 @@ export interface EchartToolboxConfig {
   iconStyle?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   zlevel?: number;
   left?: string | number;
   top?: string | number;
@@ -559,11 +559,11 @@ export interface EchartRegionsConfig {
   itemStyle?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   label?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
 }
 
 export interface EchartTimeLineDataConfig {
@@ -673,7 +673,7 @@ export interface LegendType {
   selected?: {[key: string]: any};
   textStyle?: EchartTextStyle;
   tooltip?: EchartTooltip;
-  data?: Array<EchartLegendData>;
+  data?: Array<EchartLegendData> | string[];
   backgroundColor?: string;
   borderColor?: string;
   borderWidth?: number;
@@ -850,11 +850,11 @@ export abstract class Chart {
     label?: {
       normal?: EchartTextStyle,
       emphasis?: EchartTextStyle,
-    },
+    } | EchartTextStyle,
     itemStyle?: {
       normal?: EchartTextStyle,
       emphasis?: EchartTextStyle,
-    },
+    } | EchartTextStyle,
     zlevel?: number;
     z?: number;
     left?: string | number;
@@ -1000,11 +1000,11 @@ export abstract class Chart {
     label?: {
       normal?: EchartTextStyle,
       emphasis?: EchartTextStyle,
-    },
+    } | EchartTextStyle,
     itemStyle?: {
       normal?: EchartTextStyle,
       emphasis?: EchartTextStyle,
-    },
+    }| EchartTextStyle,
     checkpointStyle?: {
       symbol?: 'circle' | 'rect' | 'roundRect' | 'triangle' | 'diamond' | 'pin' | 'arrow',
       symbolSize?: number | Array<number>,
@@ -1051,7 +1051,7 @@ export abstract class Chart {
     splitLine?: EchartAxisSplitLineConfig;
     itemStyle?: {
       normal?: EchartTextStyle,
-    };
+    } | EchartTextStyle;
     dayLabel?: EchartTextStyle,
     monthLabel?: EchartTextStyle,
     yearLabel?: EchartTextStyle,
@@ -1117,29 +1117,31 @@ export interface EchartDetailConfig {
   textShadowOffsetY?: number;
 }
 
+export type EchartSeriesType = 'line' |
+'bar' |
+'pie' |
+'scatter' |
+'effectScatter' |
+'radar' |
+'treemap' |
+'boxplot' |
+'candlestick' |
+'heatmap' |
+'map' |
+'parallel' |
+'lines' |
+'graph' |
+'sankey' |
+'funnel' |
+'gauge' |
+'pictorialBar' |
+'themeRiver' |
+'custom' |
+'wordCloud' |
+'tree';
+
 export interface EchartSeriesConfig {
-  type?: 'line' |
-  'bar' |
-  'pie' |
-  'scatter' |
-  'effectScatter' |
-  'radar' |
-  'treemap' |
-  'boxplot' |
-  'candlestick' |
-  'heatmap' |
-  'map' |
-  'parallel' |
-  'lines' |
-  'graph' |
-  'sankey' |
-  'funnel' |
-  'gauge' |
-  'pictorialBar' |
-  'themeRiver' |
-  'custom' |
-  'wordCloud' |
-  'tree';
+  type?: EchartSeriesType;
   shape?: 'circle'; // 兼容echarts-wordcloud
   sizeRange?: Array<number>; // 兼容echarts-wordcloud 字体大小的范围
   drawOutOfBound?: boolean; // 兼容echarts-wordcloud 是否允许
@@ -1307,29 +1309,29 @@ export interface EchartSeriesConfig {
   edgeLabel?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   label?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   upperLabel?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   itemStyle?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   lineStyle?: {
     type?: string;
     color?: string;
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   areaStyle?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   breadcrumb?: {
     show?: boolean;
     left?: 'left' | 'center' | 'right' | number | string;
@@ -1341,9 +1343,9 @@ export interface EchartSeriesConfig {
     itemStyle?: {
       normal?: EchartTextStyle,
       emphasis?: EchartTextStyle,
-    };
+    } | EchartTextStyle;
   };
-  layout?: 'horizontal' | 'vertical' | 'orthogonal' | 'radial' | 'circular';
+  layout?: 'none' | 'horizontal' | 'vertical' | 'orthogonal' | 'radial' | 'circular';
   boxWidth?: Array<number>;
   smooth?: boolean;
   smoothMonotone?: string;
@@ -1363,11 +1365,11 @@ export interface EchartSeriesConfig {
     label?: {
       normal?: EchartTextStyle,
       emphasis?: EchartTextStyle,
-    },
+    } | EchartTextStyle,
     itemStyle?: {
       normal?: EchartTextStyle,
       emphasis?: EchartTextStyle,
-    },
+    } | EchartTextStyle,
     data?: Array<EchartMarkPointDataXItemConfig>,
     animation?: boolean,
     animationThreshold?: number,
@@ -1389,12 +1391,12 @@ export interface EchartSeriesConfig {
     label?: {
       normal?: EchartTextStyle,
       emphasis?: EchartTextStyle,
-    },
+    } | EchartTextStyle,
     lineStyle?: {
       normal?: EchartTextStyle,
       emphasis?: EchartTextStyle,
       color?: string,
-    },
+    } | EchartTextStyle,
     data?: Array<EchartMarkPointDataXItemConfig> | any,
     animation?: boolean,
     animationThreshold?: number,
@@ -1410,11 +1412,11 @@ export interface EchartSeriesConfig {
     label?: {
       normal?: EchartTextStyle,
       emphasis?: EchartTextStyle,
-    },
+    } | EchartTextStyle,
     itemStyle?: {
       normal?: EchartTextStyle,
       emphasis?: EchartTextStyle,
-    },
+    } | EchartTextStyle,
     data?: Array<EchartMarkPointDataXItemConfig>,
     animation?: boolean,
     animationThreshold?: number,
@@ -1457,28 +1459,28 @@ export interface EchartSeriesConfig {
   textStyle?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
 }
 
 export interface ChartLeaves {
   label?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
 }
 
 export interface EchartlinksConfig {
   source?: string | number;
   target?: string | number;
   value?: number;
-  lineStyle: {
+  lineStyle?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
-  label: {
+  } | EchartTextStyle;
+  label?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   symbol?: 'circle' | 'rect' | 'roundRect' | 'triangle' | 'diamond' | 'pin' | 'arrow';
   symbolSize?: number | Array<number>;
 }
@@ -1509,11 +1511,11 @@ export interface EchartCategoriesConfig {
   label?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   itemStyle?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
 }
 export interface EchartLevelsitem {
   visualDimension?: number;
@@ -1528,15 +1530,15 @@ export interface EchartLevelsitem {
   label?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   upperLabel?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   itemStyle?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
 }
 
 export interface EchartMarkPointDataXItemConfig {
@@ -1555,15 +1557,15 @@ export interface EchartMarkPointDataXItemConfig {
   itemStyle?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   lineStyle?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   label?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
 }
 export interface EchartSeriesDataXItemConfig {
   name?: string;
@@ -1586,27 +1588,27 @@ export interface EchartSeriesDataXItemConfig {
   label?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   labelLine?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   lineStyle?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   itemStyle?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   areaStyle?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
   tooltip?: EchartTooltip;
   /* 为了兼容word */
   textStyle?: {
     normal?: EchartTextStyle,
     emphasis?: EchartTextStyle,
-  };
+  } | EchartTextStyle;
 }

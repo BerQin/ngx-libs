@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Chart } from './chart';
+import { Chart } from './chart-libs/chart';
 import { InitChart } from './init-chart';
+import { EchartStyleClass } from './chart-libs/chart-style.class';
 
 @Injectable()
 export class NgxEchartsLibService {
 
   public comonOption: Chart = new InitChart();
+  public ChartLibStyle = new EchartStyleClass();
 
   constructor() { }
 
@@ -20,7 +22,7 @@ export class NgxEchartsLibService {
         if (
           typeof ontology[key] === 'object' &&
           Object.prototype.toString.call(ontology[key]).toLowerCase() === '[object object]' &&
-          !ontology[key].length
+          !Array.isArray(ontology[key])
         ) {
           this.jsonToSet(ontology[key], append[key]);
         } else {
@@ -52,6 +54,8 @@ export class NgxEchartsLibService {
     if (option) {
       this.jsonToSet(chart, option);
     }
+
+    this.ChartLibStyle.setStyleFormSeries(chart, option);
     return chart;
   }
 }

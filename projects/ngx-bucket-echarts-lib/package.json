@@ -1,0 +1,12 @@
+{
+  "name": "ngx-bucket-echarts-lib",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
+  },
+  "dependencies": {
+    "echarts": "^4.7.0",
+    "echarts-wordcloud": "^1.1.3"
+  }
+}

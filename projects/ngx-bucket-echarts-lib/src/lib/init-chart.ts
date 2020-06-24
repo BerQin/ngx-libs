@@ -1,10 +1,10 @@
-import { Chart } from './chart';
+import { Chart } from './chart-libs/chart';
 
 export class InitChart extends Chart {
   constructor() {
     super();
     this.tooltip = {
-      trigger: 'axis',
+      trigger: 'item',
     };
     this.textStyle = {
       color: '#7f8b9c',
@@ -44,8 +44,7 @@ export class InitChart extends Chart {
       type: 'category',
       axisTick: {
         alignWithLabel: true
-      },
-      data: []
+      }
     };
 
     this.yAxis = {
@@ -60,8 +59,7 @@ export class InitChart extends Chart {
           color: '#d9d9d9'
         }
       },
-      type: 'value',
-      data: []
+      type: 'value'
     };
     this.series = [];
   }
