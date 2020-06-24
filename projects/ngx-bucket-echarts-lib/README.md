@@ -180,4 +180,4 @@ this.cloud = new WordCloudChart({
 
 源文件请产考
 
-gitHub 
+gitHub <a href="https://github.com/BerQin/ngx-libs/blob/master/projects/ngx-bucket-echarts-lib/src/lib/chart-libs/chart.ts">https://github.com/BerQin/ngx-libs/blob/master/projects/ngx-bucket-echarts-lib/src/lib/chart-libs/chart.ts<a>
