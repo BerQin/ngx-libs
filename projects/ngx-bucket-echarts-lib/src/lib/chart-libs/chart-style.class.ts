@@ -12,7 +12,8 @@ export class EchartStyleClass {
     funnel: ['xAxis' , 'yAxis' ],
     heatmap: ['xAxis' , 'yAxis' ],
     treemap: ['xAxis' , 'yAxis' ],
-    gauge: ['xAxis' , 'yAxis' ]
+    gauge: ['xAxis' , 'yAxis' ],
+    wordCloud: ['xAxis' , 'yAxis', 'constructor']
   };
 
   setStyleFormSeries (option: Chart, config: Chart) {

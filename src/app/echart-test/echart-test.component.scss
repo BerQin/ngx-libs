@@ -1,6 +1,11 @@
 :host {
   .chart-box {
+    display: inline-block;
     width: 600px;
     height: 500px;
+    &.small {
+      width: 300px;
+      height: 260px;
+    }
   }
 }

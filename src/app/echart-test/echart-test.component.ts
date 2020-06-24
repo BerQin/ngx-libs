@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'ngx-bucket-echarts-lib';
+import { Chart, WordCloudChart } from 'ngx-bucket-echarts-lib';
 
 @Component({
   selector: 'app-echart-test',
@@ -7,6 +7,32 @@ import { Chart } from 'ngx-bucket-echarts-lib';
   styleUrls: ['./echart-test.component.scss']
 })
 export class EchartTestComponent implements OnInit {
+
+  public optionCloud: WordCloudChart = new WordCloudChart({
+    sizeRange: [40, 160],
+    setData: [
+      {
+        name: 'Farrah Abraham',
+        value: 66
+      },
+      {
+        name: 'asd',
+        value: 366
+      },
+      {
+        name: 'qwe',
+        value: 136
+      },
+      {
+        name: 'dfg',
+        value: 310
+      },
+      {
+        name: 'qfv',
+        value: 240
+      }
+    ]
+  });
 
   public options: Chart = {
     xAxis: {

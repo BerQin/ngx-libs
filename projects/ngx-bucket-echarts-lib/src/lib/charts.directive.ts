@@ -29,6 +29,7 @@ export class ChartsDirective implements OnInit, OnDestroy, OnChanges, AfterViewI
   public _Options: Chart;
   @Input() set options(value: Chart) {
     this._Options = this.chartService.creatOption(value);
+    console.log(this._Options);
   }
 
   get options(): Chart {
